@@ -1,0 +1,32 @@
+* Advent of Code - PostgreSQL
+
+I've been inspired by [[https://github.com/xocolatl/advent-of-code][Vik Fearing's work]] solving [[https://adventofcode.com/][Advent of Code]] using
+[[https://www.postgresql.org][PostgreSQL]] since I first saw it in 2017 and thought I'd finally try my
+hand as well.
+
+I've flagrantly appropriated his set up. Thanks, Vik!
+
+** Usage
+
+One of the features I learned from looking at Vik's work is ~\COPY
+some_table FROM PROGRAM 'curl ...'~, which we can use to fetch the
+input from the advent of code site. We need a cookie to do so.
+
+#+begin_src shell
+cp session.netscape.dist session.netscape
+#+end_src
+
+Update ~session.netscape~ to include the session id you find in your browser.
+
+For some reason I haven't been successful using the ~Set-Cookie~ cookie
+format, but the Netscape tab-delimited cookie file works for me.
+
+Now you can run the scripts with something like this:
+
+#+begin_src shell
+psql -Xqf 2020/day01.sql
+#+end_src
+
+Technically these are ~psql~ (not sql) files, as I'm using psql-specific
+commands as well. ~psql~ is one of the reasons PostgreSQL is so
+wnoderful!
